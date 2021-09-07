@@ -1,4 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/internal/operators';
+import { Book } from '../models/book';
 
 @Injectable({
   providedIn: 'root',
@@ -6,9 +10,11 @@ import { Injectable } from '@angular/core';
 export class SearchService {
   searchedBooks = {};
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   getSearchedBooks(keyword: string) {
-    this.searchedBooks;
+    return this.http.get(
+      'https://www.googleapis.com/books/v1/volumes?q=' + keyword
+    );
   }
 }

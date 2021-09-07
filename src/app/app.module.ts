@@ -6,9 +6,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
+import { BookCardComponent } from './components/book-card/book-card.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, BookCardComponent],
   imports: [
     BrowserModule,
     HttpClientModule,

@@ -1,8 +1,15 @@
 .example-card {
   max-width: 400px;
-  margin-bottom: 8px;
+  max-height: 250px;
 }
 mat-grid-tile {
   background: lightblue;
   max-width: 450px;
+  margin-bottom: 15px;
+}
+.mat-grid-tile-content {
+  margin-bottom: 20px;
+}
+book-card {
+  background-color: #dcdcdc;
 }

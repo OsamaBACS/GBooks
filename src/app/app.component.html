@@ -1,8 +1,32 @@
 <div class="container">
-  <h1>Google Books</h1>
-  <div class="row">
-    <div class="col" *ngFor="let book of books" style="margin-bottom: 15px">
-      <book-card [books]="book"></book-card>
+  <h1>Search for Google Books</h1>
+  <div class="row" style="margin-bottom: 15px">
+    <div class="col">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Book name..."
+        #book
+        (keyup)="getBooks(book.value)"
+      />
     </div>
+    <div class="col" *ngIf="books">
+      <mat-form-field appearance="fill">
+        <mat-label>Filter By</mat-label>
+        <mat-select (selectionChange)="sortBooks()">
+          <mat-option>None</mat-option>
+          <mat-option value="title">Title</mat-option>
+          <mat-option value="authors">Author</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <ng-container *ngFor="let book of books; let i = index">
+      <div class="col" style="margin-bottom: 15px">
+        <book-card [books]="book"></book-card>
+      </div>
+      <div *ngIf="(i + 1) % 2 === 0" class="w-100"></div>
+    </ng-container>
   </div>
 </div>
